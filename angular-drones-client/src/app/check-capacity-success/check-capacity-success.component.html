@@ -1,0 +1,21 @@
+<div class="card my-5">
+    <div class="card-body">
+       <label *ngIf="condition" for="error">{{errorMesage}}</label>
+       <label *ngIf="notFound" for="errorNotFound">Drone with id {{drone.DRONE_ID}} not found</label>
+       <p-table *ngIf="!condition && !notFound" [value]="selectedDrones"> 
+        <ng-template pTemplate="header"> 
+            <tr>
+              
+              <th scope="col">DRONE_ID</th>
+              <th scope="col">BATTERY_CAPACITY</th>
+            </tr> 
+        </ng-template>
+        <ng-template pTemplate="body" let-drone let-rowIndex="rowIndex">
+            <tr>
+                <td>{{ drone.DRONE_ID }}</td>
+                <td>{{ capacityArray[rowIndex] }}</td>
+              </tr>
+        </ng-template> 
+        </p-table>
+    </div>
+  </div>

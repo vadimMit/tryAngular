@@ -1,0 +1,36 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit(BATTERY_CAPACITY,SERIAL_NUMBER,MAX_WEIGHT_TO_LOAD,MODEL,STATE)" #droneForm="ngForm">
+        <button type="submit" [disabled]="!droneForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+      <div class="form-group">
+        <label for="BATTERY_CAPACITY">BATTERY_CAPACITY</label>
+        <input type="number" id="BATTERY_CAPACITY" placeholder="Enter  your BATTERY_CAPACITY" [(ngModel)]="BATTERY_CAPACITY">
+      </div>
+      <div class="form-group">
+        <label for="SERIAL_NUMBER">SERIAL_NUMBER</label>
+        <input type="text" id="SERIAL_NUMBER" placeholder="Enter  your SERIAL_NUMBER" [(ngModel)]="SERIAL_NUMBER">
+      </div>
+      <div class="form-group">
+        <label for="MAX_WEIGHT_TO_LOAD">MAX_WEIGHT_TO_LOAD</label>
+        <input type="number" id="MAX_WEIGHT_TO_LOAD" placeholder="Enter  your MAX_WEIGHT_TO_LOAD" [(ngModel)]="MAX_WEIGHT_TO_LOAD">
+      </div>
+      <div class="form-group">
+        <label for="MODEL">MODEL</label>
+        <select name="demo" id="MODEL" [(ngModel)]="MODEL">
+          <option selected="selected" value="LIGHTWEIGHT">LIGHTWEIGHT</option>
+          <option value="MIDDLEWEIGHT">MIDDLEWEIGHT</option>
+          <option value="CRUISEWEIGHT">CRUISEWEIGHT</option>
+          <option value="HEAVYWEIGHT">HEAVYWEIGHT</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="STATE">STATE</label>
+        <select name="demo" id="STATE" [(ngModel)]="STATE">
+          <option selected="selected" value="IDLE">IDLE</option>
+          <option value="LOADED">LOADED</option>
+          </select>
+      </div>
+    </div>
+  </div>

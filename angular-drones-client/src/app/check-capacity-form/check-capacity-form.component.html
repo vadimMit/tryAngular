@@ -1,0 +1,32 @@
+<div class="card my-5">
+    <div class="card-body">
+       <form (ngSubmit)="onSubmit(selectedDrones)" #droneForm="ngForm">
+            <button type="submit" [disabled]="!droneForm.form.valid" 
+            class="btn btn-info">Submit</button>
+        </form>
+    <p-table [value]="drones" [(selection)]="selectedDrones" selectionMode="multiple" [paginator]="true" 
+    [rows]="2" [responsive]="true"
+    [autoLayout]="true"
+    [rowsPerPageOptions]="[2, 5, 10]"> 
+    <ng-template pTemplate="header"> 
+        <tr> 
+            <th scope="col"></th>
+            <th scope="col">DRONE_ID</th>
+        </tr> 
+    </ng-template>
+    <ng-template pTemplate="body" let-drone>
+        <tr [pSelectableRow]="drone.DRONE_ID">
+            <td><p-tableCheckbox [value]="drone.DRONE_ID"> 
+            </p-tableCheckbox></td>
+            <td>{{ drone.DRONE_ID }}</td>
+          </tr>
+    </ng-template> <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+    </p-table>
+    </div>
+</div>
+  
